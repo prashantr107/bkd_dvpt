@@ -5,6 +5,17 @@ const app = express();
 app.set('view engine', 'ejs')
 
 
+app.use((req, res, next) =>{
+    console.log('This is Middleware');
+    const a=10
+    const b=20
+    console.log('Sum of a and b is:', a+b);
+
+    
+    return next()
+})
+
+
 app.get('/', (req, res) => {
     res.render('index')
 })
