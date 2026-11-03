@@ -1,22 +1,24 @@
 const express = require('express');
+const morgan = require('morgan')
 const app = express();
+
+app.use(morgan('dev'))
 
 
 app.set('view engine', 'ejs')
 
 
-app.use((req, res, next) =>{
-    console.log('This is Middleware');
-    const a=10
-    const b=20
-    console.log('Sum of a and b is:', a+b);
-
-    
-    return next()
-})
 
 
-app.get('/', (req, res) => {
+
+app.get('/', (req, res, next) => {
+    const a = 10;
+    const b = 5;
+
+    console.log('Sum:', a + b);
+    next();
+
+ }, (req, res) => {
     res.render('index')
 })
 
