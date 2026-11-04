@@ -31,6 +31,13 @@ app.get('/profile', (req, res) => {
 })
 
 
+app.post('/get-form-data', (req, res) => {
+    console.log(req.body)
+    res.send('Form data received')
+})
+
+
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
