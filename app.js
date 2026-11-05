@@ -51,13 +51,17 @@ app.post('/register', async (req, res) => {
         password: password 
     })
 
-    res.send(newUser)
+    res.send('User Registered Successfully')
 })
 
 
 
 
-
+app.get('/get-users', (req, res) => {
+    userModel.find().then((users) => {
+        res.send(users) 
+    })
+})
 
 
 
